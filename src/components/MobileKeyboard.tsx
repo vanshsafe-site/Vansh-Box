@@ -66,6 +66,12 @@ const DIGITS: Record<string, number> = {
   "0": 0x0b,
 };
 
+const KEY_ROWS = [
+  ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+  ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
+  ["z", "x", "c", "v", "b", "n", "m"],
+];
+
 const EXTENDED = new Set([0x48, 0x50, 0x4b, 0x4d]);
 
 export function MobileKeyboard({ onKeys, onClose }: Props) {
@@ -110,13 +116,15 @@ export function MobileKeyboard({ onKeys, onClose }: Props) {
           </button>
         ))}
       </div>
-      <div className="vb-krow">
-        {Object.entries(LETTERS).map(([label, code]) => (
-          <button key={label} className="vb-key" onClick={() => press(code)}>
-            {label.toUpperCase()}
-          </button>
-        ))}
-      </div>
+      {KEY_ROWS.map((row) => (
+        <div className="vb-krow" key={row.join("")}>
+          {row.map((label) => (
+            <button key={label} className="vb-key" onClick={() => press(LETTERS[label])}>
+              {label.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      ))}
       <div className="vb-krow">
         <button className="vb-key" onClick={onClose}>
           CLOSE KEYBOARD

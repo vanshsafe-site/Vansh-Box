@@ -152,6 +152,10 @@
   --vb-screen: oklch(0.09 0.01 150);
 }
 
+body {
+  background-color: var(--vb-bg);
+}
+
 .vb-app {
   min-height: 100vh;
   margin: 0 auto;
