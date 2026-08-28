@@ -92,7 +92,7 @@ export function MobileKeyboard({ onKeys, onClose }: Props) {
 
   return (
     <div className="vb-keyboard" aria-label="Virtual keyboard">
-      <div className="vb-krow">
+      <div className="vb-krow vb-krow-compact vb-krow-10">
         {MODIFIERS.map(([label, code]) => (
           <button
             key={label}
@@ -117,7 +117,7 @@ export function MobileKeyboard({ onKeys, onClose }: Props) {
         ))}
       </div>
       {KEY_ROWS.map((row) => (
-        <div className="vb-krow" key={row.join("")}>
+        <div className={`vb-krow vb-krow-compact vb-krow-${row.length}`} key={row.join("")}>
           {row.map((label) => (
             <button key={label} className="vb-key" onClick={() => press(LETTERS[label])}>
               {label.toUpperCase()}

@@ -283,7 +283,12 @@ body {
   padding: 6px;
 }
 .vb-krow { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-bottom: 4px; }
+.vb-krow-compact { display: grid; grid-template-columns: repeat(var(--vb-key-count), minmax(0, 1fr)); }
+.vb-krow-10 { --vb-key-count: 10; }
+.vb-krow-9 { --vb-key-count: 9; }
+.vb-krow-7 { --vb-key-count: 7; }
 .vb-key { padding: 8px 9px; min-width: 34px; }
+.vb-krow-compact .vb-key { min-width: 0; padding-inline: 4px; }
 .vb-key-on { background: var(--vb-fg); color: var(--vb-screen); }
 
 .vb-os { text-align: center; font-size: 11px; }
