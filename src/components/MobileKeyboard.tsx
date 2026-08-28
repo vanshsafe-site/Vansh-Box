@@ -92,7 +92,7 @@ export function MobileKeyboard({ onKeys, onClose }: Props) {
 
   return (
     <div className="vb-keyboard" aria-label="Virtual keyboard">
-      <div className="vb-krow vb-krow-compact vb-krow-10">
+      <div className="vb-krow vb-krow-special">
         {MODIFIERS.map(([label, code]) => (
           <button
             key={label}
@@ -109,7 +109,7 @@ export function MobileKeyboard({ onKeys, onClose }: Props) {
           </button>
         ))}
       </div>
-      <div className="vb-krow">
+      <div className="vb-krow vb-krow-compact vb-krow-digits">
         {Object.entries(DIGITS).map(([label, code]) => (
           <button key={label} className="vb-key" onClick={() => press(code)}>
             {label}
